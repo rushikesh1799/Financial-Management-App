@@ -1,7 +1,13 @@
 import React from "react";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
+import SavingsIcon from "@mui/icons-material/Savings";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { useSelector } from "react-redux";
 
 const TransactionCard = ({ transaction }) => {
+    const { seletectedItem } = useSelector((state) => state.income);
+
     function formatDate(dateString) {
         const date = new Date(dateString);
         const now = new Date();
@@ -21,7 +27,20 @@ const TransactionCard = ({ transaction }) => {
     return (
         <div className="transaction-card">
             <div className="transaction-card-left">
-                <RestaurantIcon fontSize="large" sx={{ marginRight: "8px" }} />
+                {seletectedItem === "income" ? (
+                    <AccountBalanceIcon
+                        fontSize="large"
+                        sx={{ marginRight: "8px" }}
+                    />
+                ) : seletectedItem === "expense" ? (
+                    <AccountBalanceWalletIcon
+                        fontSize="large"
+                        sx={{ marginRight: "8px" }}
+                    />
+                ) : (
+                    <SavingsIcon fontSize="large" sx={{ marginRight: "8px" }} />
+                )}
+
                 <span className="transaction-card-category">
                     {transaction.category}
                 </span>

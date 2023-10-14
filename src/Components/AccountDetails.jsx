@@ -8,9 +8,11 @@ import { useSelector } from "react-redux";
 const AccountDetails = () => {
     const { income } = useSelector((state) => state.income);
     const { expense } = useSelector((state) => state.expense);
+    const { savings } = useSelector((state) => state.savings);
 
     const totalIncome = income.reduce((acc, { amount }) => amount + acc, 0);
     const totalExpense = expense.reduce((acc, { amount }) => amount + acc, 0);
+    const totalSavings = savings.reduce((acc, { amount }) => amount + acc, 0);
     return (
         <div className="main-leftside">
             <div className="account-details-wrapper">
@@ -47,7 +49,7 @@ const AccountDetails = () => {
                     />
                     <div>
                         <p className="totals-headers">Total Savings</p>
-                        <h2>₹ 80.00</h2>
+                        <h2>₹ {totalSavings}.00</h2>
                     </div>
                 </div>
             </div>

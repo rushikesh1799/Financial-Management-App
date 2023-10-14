@@ -5,16 +5,16 @@ import AccountDetails from "./AccountDetails";
 import Income from "./Income/Income";
 import Expense from "./Expense/Expense";
 import Savings from "./Savings/Savings";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-    const [seletectedItem, setSelectedItem] = useState("income");
+    // const [seletectedItem, setSelectedItem] = useState("income");
+
+    const { seletectedItem } = useSelector((state) => state.income);
 
     return (
         <div className="app_wrapper">
-            <Navbar
-                seletectedItem={seletectedItem}
-                setSelectedItem={setSelectedItem}
-            />
+            <Navbar />
             <div className="main">
                 <AccountDetails />
                 {seletectedItem === "income" ? (

@@ -1,10 +1,16 @@
 import React from "react";
 import "./components.css";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import { useDispatch } from "react-redux";
 
-const Navbar = ({ seletectedItem, setSelectedItem }) => {
+const Navbar = () => {
+    const dispatch = useDispatch();
     const handleSeletedItem = (e) => {
-        setSelectedItem(e.target.value);
+        // setSelectedItem(e.target.value);
+        dispatch({
+            type: "SELECT_SELECTEDITEM",
+            payload: e.target.value,
+        });
     };
 
     return (
