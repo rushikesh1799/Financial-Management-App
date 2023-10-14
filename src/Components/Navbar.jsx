@@ -32,8 +32,6 @@ const Navbar = () => {
                 <button onClick={handleSeletedItem} value="savings">
                     Savings
                 </button>
-            </div>
-            <div>
                 <button
                     value="reports"
                     onClick={handleSeletedItem}
@@ -41,6 +39,15 @@ const Navbar = () => {
                 >
                     Reports
                 </button>
+            </div>
+            <div className="nav_right">
+                <a
+                    target="_blank"
+                    href="https://github.com/rushikesh1799/Financial-Management-App"
+                    className="github_btn"
+                >
+                    Github
+                </a>
             </div>
         </div>
     );
