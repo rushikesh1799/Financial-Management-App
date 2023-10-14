@@ -1,0 +1,141 @@
+.app_wrapper {
+    width: 1024px;
+    height: 80vh;
+    background-color: #fff;
+    border-radius: 1rem;
+}
+
+.navbar_wrapper {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    overflow: auto;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.title_name {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.title h2 {
+    margin: 0;
+}
+
+.nav_options button {
+    margin-right: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.reports_btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+    height: 90%;
+    flex: 1;
+    display: flex;
+}
+
+.main-leftside {
+    flex: 1;
+    /* Adjust this as needed, depending on the desired ratio between left and right sides */
+    background-color: #f3f4f6;
+    border-bottom-left-radius: 1rem;
+}
+
+.main-rightside {
+    flex: 2;
+    /* Adjust this as needed, depending on the desired ratio between left and right sides */
+    background-color: #f2f2f2;
+    border-bottom-right-radius: 1rem;
+    padding: 2rem 2rem 2rem 0rem;
+
+    overflow: auto;
+}
+
+.content {
+    overflow: auto;
+    color: #1a1a1a;
+    padding-top: 20px;
+}
+
+.account-details-wrapper {
+    height: 90%;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(63, 94, 251, 1) 0%, rgba(212, 109, 234, 0.8492647058823529) 50%, rgba(253, 149, 112, 1) 100%);
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    color: #FFF;
+}
+
+.total_price {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.totals-headers {
+    margin: 0;
+}
+
+.account-details-wrapper h2 {
+    margin: 0;
+}
+
+.total_income {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    background-color: #ffffff;
+}
+
+.transaction-card-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction-card-category {
+    font-weight: 600;
+}
+
+.transaction-card-right {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+.transaction-card-price {
+    font-size: 1.1rem;
+}
+
+.transaction-card-date {
+    opacity: 0.5;
+}
+
+.modal_input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
