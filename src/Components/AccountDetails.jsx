@@ -3,14 +3,22 @@ import "./components.css";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import SavingsIcon from "@mui/icons-material/Savings";
+import { useSelector } from "react-redux";
 
 const AccountDetails = () => {
+    const { income } = useSelector((state) => state.income);
+    const { expense } = useSelector((state) => state.expense);
+
+    const totalIncome = income.reduce((acc, { amount }) => amount + acc, 0);
+    const totalExpense = expense.reduce((acc, { amount }) => amount + acc, 0);
     return (
         <div className="main-leftside">
             <div className="account-details-wrapper">
                 <div>
                     <p>Total Balance</p>
-                    <h2 className="total_price">$ 4800.00</h2>
+                    <h2 className="total_price">
+                        ₹ {totalIncome - totalExpense}.00
+                    </h2>
                 </div>
                 <div className="total_income">
                     <ArrowCircleUpIcon
@@ -19,7 +27,7 @@ const AccountDetails = () => {
                     />
                     <div>
                         <p className="totals-headers">Total Income</p>
-                        <h2>$ 400.00</h2>
+                        <h2>₹ {totalIncome}.00</h2>
                     </div>
                 </div>
                 <div className="total_income">
@@ -29,7 +37,7 @@ const AccountDetails = () => {
                     />
                     <div>
                         <p className="totals-headers">Total Expense</p>
-                        <h2>$ 320.00</h2>
+                        <h2>$ {totalExpense}.00</h2>
                     </div>
                 </div>
                 <div className="total_income">
