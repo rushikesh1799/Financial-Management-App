@@ -10,6 +10,7 @@ import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import { MenuItem } from "@mui/material";
 import { addIncome } from "../Redux/Actions/IncomeActions";
 import { addExpense } from "../Redux/Actions/ExpenseAction";
+import { addSavings } from "../Redux/Actions/SavingsAction";
 
 const style = {
     position: "absolute",
@@ -59,8 +60,10 @@ const IncomeExpenseForm = () => {
         } else {
             if (transactionTypeValue === "income") {
                 dispatch(addIncome(newTransaction));
-            } else {
+            } else if (transactionTypeValue === "expense") {
                 dispatch(addExpense(newTransaction));
+            } else {
+                dispatch(addSavings(newTransaction));
             }
             handleClose();
         }
@@ -159,43 +162,139 @@ const IncomeExpenseForm = () => {
                         </div>
                         <div className="modal_input">
                             <label htmlFor="address1">Category:</label>
-                            <TextField
-                                id="outlined-required"
-                                select
-                                label="Category"
-                                variant="outlined"
-                                required
-                                size="small"
-                                value={newTransaction.category}
-                                onChange={(e) =>
-                                    setNewTransaction((prev) => ({
-                                        ...prev,
-                                        category: e.target.value,
-                                    }))
-                                }
-                                sx={{ width: "50%" }}
-                            >
-                                <MenuItem value="Food and Dining">
-                                    Food and Dining
-                                </MenuItem>
-                                <MenuItem value="Entertainment">
-                                    Entertainment
-                                </MenuItem>
-                                <MenuItem value="Transportation">
-                                    Transportation
-                                </MenuItem>
-                                <MenuItem value="Housing">Housing</MenuItem>
-                                <MenuItem value="Health and Fitness">
-                                    Health and Fitness
-                                </MenuItem>
-                                <MenuItem value="Shopping">Shopping</MenuItem>
-                                <MenuItem value="Travel">Travel</MenuItem>
-                                <MenuItem value="Education">Education</MenuItem>
-                                <MenuItem value="Utilities">Utilities</MenuItem>
-                                <MenuItem value="Miscellaneous">
-                                    Miscellaneous
-                                </MenuItem>
-                            </TextField>
+                            {transactionTypeValue === "income" ? (
+                                <TextField
+                                    id="outlined-required"
+                                    select
+                                    label="Category"
+                                    variant="outlined"
+                                    required
+                                    size="small"
+                                    value={newTransaction.category}
+                                    onChange={(e) =>
+                                        setNewTransaction((prev) => ({
+                                            ...prev,
+                                            category: e.target.value,
+                                        }))
+                                    }
+                                    sx={{ width: "50%" }}
+                                >
+                                    <MenuItem value="Salary">Salary</MenuItem>
+                                    <MenuItem value="Freelance Earnings">
+                                        Freelance Earnings
+                                    </MenuItem>
+                                    <MenuItem value="Business Revenue">
+                                        Business Revenue
+                                    </MenuItem>
+                                    <MenuItem value="Investment Income">
+                                        Investment Income
+                                    </MenuItem>
+                                    <MenuItem value="Rental Income">
+                                        Rental Income
+                                    </MenuItem>
+                                    <MenuItem value="Consulting Fees">
+                                        Consulting Fees
+                                    </MenuItem>
+                                    <MenuItem value="Royalties">
+                                        Royalties
+                                    </MenuItem>
+                                    <MenuItem value="Savings Interest">
+                                        Savings Interest
+                                    </MenuItem>
+                                    <MenuItem value="Gifts and Inheritance">
+                                        Gifts and Inheritance
+                                    </MenuItem>
+                                    <MenuItem value="Online Sales">
+                                        Online Sales
+                                    </MenuItem>
+                                    <MenuItem value="Miscellaneous">
+                                        Miscellaneous
+                                    </MenuItem>
+                                </TextField>
+                            ) : transactionTypeValue === "expense" ? (
+                                <TextField
+                                    id="outlined-required"
+                                    select
+                                    label="Category"
+                                    variant="outlined"
+                                    required
+                                    size="small"
+                                    value={newTransaction.category}
+                                    onChange={(e) =>
+                                        setNewTransaction((prev) => ({
+                                            ...prev,
+                                            category: e.target.value,
+                                        }))
+                                    }
+                                    sx={{ width: "50%" }}
+                                >
+                                    <MenuItem value="Food and Dining">
+                                        Food and Dining
+                                    </MenuItem>
+                                    <MenuItem value="Entertainment">
+                                        Entertainment
+                                    </MenuItem>
+                                    <MenuItem value="Transportation">
+                                        Transportation
+                                    </MenuItem>
+                                    <MenuItem value="Housing">Housing</MenuItem>
+                                    <MenuItem value="Health and Fitness">
+                                        Health and Fitness
+                                    </MenuItem>
+                                    <MenuItem value="Shopping">
+                                        Shopping
+                                    </MenuItem>
+                                    <MenuItem value="Travel">Travel</MenuItem>
+                                    <MenuItem value="Education">
+                                        Education
+                                    </MenuItem>
+                                    <MenuItem value="Utilities">
+                                        Utilities
+                                    </MenuItem>
+                                    <MenuItem value="Miscellaneous">
+                                        Miscellaneous
+                                    </MenuItem>
+                                </TextField>
+                            ) : (
+                                <TextField
+                                    id="outlined-required"
+                                    select
+                                    label="Category"
+                                    variant="outlined"
+                                    required
+                                    size="small"
+                                    value={newTransaction.category}
+                                    onChange={(e) =>
+                                        setNewTransaction((prev) => ({
+                                            ...prev,
+                                            category: e.target.value,
+                                        }))
+                                    }
+                                    sx={{ width: "50%" }}
+                                >
+                                    <MenuItem value="Investment Portfolio">
+                                        Investment Portfolio
+                                    </MenuItem>
+                                    <MenuItem value="Emergency Fund">
+                                        Emergency Fund
+                                    </MenuItem>
+                                    <MenuItem value="Retirement Fund">
+                                        Retirement Fund
+                                    </MenuItem>
+                                    <MenuItem value="Travel Fund">
+                                        Travel Fund
+                                    </MenuItem>
+                                    <MenuItem value="Education Fund">
+                                        Education Fund
+                                    </MenuItem>
+                                    <MenuItem value="Home Down Payment">
+                                        Home Down Payment
+                                    </MenuItem>
+                                    <MenuItem value="Healthcare Fund">
+                                        Healthcare Fund
+                                    </MenuItem>
+                                </TextField>
+                            )}
                         </div>
                         <div className="modal_input">
                             <label htmlFor="address1">Date:</label>

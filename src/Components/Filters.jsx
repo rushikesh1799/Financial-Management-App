@@ -28,6 +28,7 @@ const Filters = () => {
             >
                 <MenuItem value="income">Income</MenuItem>
                 <MenuItem value="expense">Expense</MenuItem>
+                <MenuItem value="savings">Savings</MenuItem>
             </TextField>
             <IncomeExpenseForm />
         </div>

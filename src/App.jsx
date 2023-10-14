@@ -4,12 +4,14 @@ import Dashboard from "./Components/Dashboard";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchExpense } from "./Redux/Actions/ExpenseAction";
+import { fetchSavings } from "./Redux/Actions/SavingsAction";
 
 function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchExpense());
+        dispatch(fetchSavings());
     }, [dispatch]);
 
     return (

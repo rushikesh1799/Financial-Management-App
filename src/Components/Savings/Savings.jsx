@@ -1,26 +1,25 @@
 import React, { useEffect } from "react";
-import "../components.css";
-import Filters from "../Filters";
+import { fetchSavings } from "../../Redux/Actions/SavingsAction";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchIncome } from "../../Redux/Actions/IncomeActions";
 import TransactionCard from "../TransactionCard";
+import Filters from "../Filters";
 
-const Income = () => {
+const Savings = () => {
     const dispatch = useDispatch();
-    const { income } = useSelector((state) => state.income);
+    const { savings } = useSelector((state) => state.savings);
 
-    const sortedIncome = income.sort(
+    const sortedSavings = savings.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
     );
-    
+
     useEffect(() => {
-        dispatch(fetchIncome());
+        dispatch(fetchSavings());
     }, [dispatch]);
 
     return (
         <div className="main-rightside">
             <Filters />
-            {sortedIncome.map((transaction) => (
+            {sortedSavings.map((transaction) => (
                 <TransactionCard
                     transaction={transaction}
                     key={transaction._id}
@@ -30,4 +29,4 @@ const Income = () => {
     );
 };
 
-export default Income;
+export default Savings;

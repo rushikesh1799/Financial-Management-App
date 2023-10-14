@@ -4,6 +4,7 @@ import "./components.css";
 import AccountDetails from "./AccountDetails";
 import Income from "./Income/Income";
 import Expense from "./Expense/Expense";
+import Savings from "./Savings/Savings";
 
 const Dashboard = () => {
     const [seletectedItem, setSelectedItem] = useState("income");
@@ -21,9 +22,7 @@ const Dashboard = () => {
                 ) : seletectedItem === "expense" ? (
                     <Expense />
                 ) : seletectedItem === "savings" ? (
-                    <div className="main-rightside">
-                        <h1>Savings</h1>
-                    </div>
+                    <Savings />
                 ) : (
                     <div className="main-rightside">
                         <h1>Reports</h1>

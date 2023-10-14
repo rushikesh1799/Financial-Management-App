@@ -37,7 +37,7 @@ const AccountDetails = () => {
                     />
                     <div>
                         <p className="totals-headers">Total Expense</p>
-                        <h2>$ {totalExpense}.00</h2>
+                        <h2>₹ {totalExpense}.00</h2>
                     </div>
                 </div>
                 <div className="total_income">
@@ -47,7 +47,7 @@ const AccountDetails = () => {
                     />
                     <div>
                         <p className="totals-headers">Total Savings</p>
-                        <h2>$ 80.00</h2>
+                        <h2>₹ 80.00</h2>
                     </div>
                 </div>
             </div>
