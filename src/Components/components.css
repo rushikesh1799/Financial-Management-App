@@ -106,6 +106,16 @@
     align-items: center;
 }
 
+.form_input {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    background-color: #ffffff;
+}
+
 .transaction-card {
     display: flex;
     justify-content: space-between;
