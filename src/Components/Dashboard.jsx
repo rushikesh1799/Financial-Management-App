@@ -6,6 +6,7 @@ import Income from "./Income/Income";
 import Expense from "./Expense/Expense";
 import Savings from "./Savings/Savings";
 import { useSelector } from "react-redux";
+import Reports from "./Reports/Reports";
 
 const Dashboard = () => {
     // const [seletectedItem, setSelectedItem] = useState("income");
@@ -24,9 +25,7 @@ const Dashboard = () => {
                 ) : seletectedItem === "savings" ? (
                     <Savings />
                 ) : (
-                    <div className="main-rightside">
-                        <h1>Reports</h1>
-                    </div>
+                    <Reports />
                 )}
             </div>
         </div>

@@ -154,3 +154,39 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.report_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.income-vs-expense {
+    display: flex;
+    width: fit-content;
+    padding: 2rem;
+    gap: 8px;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.income-value {
+    color: green;
+}
+
+.expense-value {
+    color: red;
+}
+
+.total_expense_wrapper {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.total_expense-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}

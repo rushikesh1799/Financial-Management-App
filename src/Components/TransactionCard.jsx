@@ -47,7 +47,19 @@ const TransactionCard = ({ transaction }) => {
             </div>
             <div className="transaction-card-right">
                 <span className="transaction-card-price">
-                    -₹{transaction.amount}.00
+                    {seletectedItem === "income" ? (
+                        <span style={{ color: "green" }}>
+                            +₹{transaction.amount}.00
+                        </span>
+                    ) : seletectedItem === "expense" ? (
+                        <span style={{ color: "#e53b3b" }}>
+                            -₹{transaction.amount}.00
+                        </span>
+                    ) : (
+                        <span style={{ color: "black" }}>
+                            +₹{transaction.amount}.00
+                        </span>
+                    )}
                 </span>
                 <span className="transaction-card-date">
                     {formatDate(transaction.date)}
