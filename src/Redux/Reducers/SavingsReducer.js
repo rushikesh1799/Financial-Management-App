@@ -1,6 +1,6 @@
 const initialState = {
     savings: [],
-    savingsCategory: "",
+    savingsCategory: "All",
     selectFilter: "",
     loading: false,
     error: null,
