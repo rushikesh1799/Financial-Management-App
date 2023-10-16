@@ -6,11 +6,18 @@ import Filters from "../Filters";
 
 const Expense = () => {
     const dispatch = useDispatch();
-    const { expense } = useSelector((state) => state.expense);
+    const { expense, expenseCategory } = useSelector((state) => state.expense);
 
     const sortedExpense = expense.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
     );
+
+    const categoryFilteredExpense =
+        expenseCategory === "All"
+            ? sortedExpense
+            : sortedExpense.filter(
+                  (transaction) => transaction.category === expenseCategory
+              );
 
     useEffect(() => {
         dispatch(fetchExpense());
@@ -19,7 +26,7 @@ const Expense = () => {
     return (
         <div className="main-rightside">
             <Filters />
-            {sortedExpense.map((transaction) => (
+            {categoryFilteredExpense.map((transaction) => (
                 <TransactionCard
                     transaction={transaction}
                     key={transaction._id}

@@ -1,6 +1,6 @@
 const initialState = {
     income: [],
-    category: "",
+    incomeCategory: "All",
     seletectedItem: "income",
     transactionType: "",
     loading: false,
@@ -48,6 +48,11 @@ const IncomeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 seletectedItem: action.payload,
+            };
+        case "SET_INCOME_CATEGORY_FILTER":
+            return {
+                ...state,
+                incomeCategory: action.payload,
             };
         default:
             return state;

@@ -7,12 +7,19 @@ import TransactionCard from "../TransactionCard";
 
 const Income = () => {
     const dispatch = useDispatch();
-    const { income } = useSelector((state) => state.income);
+    const { income, incomeCategory } = useSelector((state) => state.income);
 
     const sortedIncome = income.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
     );
-    
+
+    const categoryFilteredIncome =
+        incomeCategory === "All"
+            ? sortedIncome
+            : sortedIncome.filter(
+                  (transaction) => transaction.category === incomeCategory
+              );
+
     useEffect(() => {
         dispatch(fetchIncome());
     }, [dispatch]);
@@ -20,7 +27,7 @@ const Income = () => {
     return (
         <div className="main-rightside">
             <Filters />
-            {sortedIncome.map((transaction) => (
+            {categoryFilteredIncome.map((transaction) => (
                 <TransactionCard
                     transaction={transaction}
                     key={transaction._id}

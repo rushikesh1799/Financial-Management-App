@@ -1,6 +1,6 @@
 const initialState = {
     savings: [],
-    category: "",
+    savingsCategory: "",
     selectFilter: "",
     loading: false,
     error: null,
@@ -37,6 +37,11 @@ const SavingsReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: "Error fetching or adding the saving data.",
+            };
+        case "SET_SAVINGS_CATEGORY_FILTER":
+            return {
+                ...state,
+                savingsCategory: action.payload,
             };
         default:
             return state;
