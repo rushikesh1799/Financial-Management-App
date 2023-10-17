@@ -2,10 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "../components.css";
 
-import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
-import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
-import SavingsIcon from "@mui/icons-material/Savings";
-
 const IncomeVsExpense = () => {
     const { income } = useSelector((state) => state.income);
     const { expense } = useSelector((state) => state.expense);
